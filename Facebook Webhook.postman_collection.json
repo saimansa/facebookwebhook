@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "9acc704f-7d89-45d2-ae17-5e23f5a47d17",
+		"name": "Facebook Webhook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/lead/subscribe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"object\":\"page\",\r\n   \"entry\":[\r\n      {\r\n         \"id\":\"51044240199134611\",\r\n         \"time\":1447342027,\r\n         \"changes\":[\r\n            {\r\n               \"field\":\"leadgen\",\r\n               \"value\":{\r\n                  \"adgroup_id\":0,\r\n                  \"ad_id\":0,\r\n                  \"created_time\":1447342026,\r\n                  \"leadgen_id\":55459717045641545,\r\n                  \"page_id\":516540199134611,\r\n                  \"form_id\":551111744595541\r\n               }\r\n            },\r\n            {\r\n               \"field\":\"leadgen\",\r\n               \"value\":{\r\n                  \"adgroup_id\":0,\r\n                  \"ad_id\":0,\r\n                  \"created_time\":1447342026,\r\n                  \"leadgen_id\":55459717045641546,\r\n                  \"page_id\":516540199134611,\r\n                  \"form_id\":551111744595541\r\n               }\r\n            }\r\n         ]\r\n      }\r\n   ]\r\n}"
+				},
+				"url": {
+					"raw": "https://theta-kingdom-234806.appspot.com/api/webhooks",
+					"protocol": "https",
+					"host": [
+						"theta-kingdom-234806",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"webhooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/webhooks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{domain}}/api/webhooks?hub.mode=subscribe&hub.challenge=1158201444&hub.verify_token=meatyhamhock",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"webhooks"
+					],
+					"query": [
+						{
+							"key": "hub.mode",
+							"value": "subscribe"
+						},
+						{
+							"key": "hub.challenge",
+							"value": "1158201444"
+						},
+						{
+							"key": "hub.verify_token",
+							"value": "meatyhamhock"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
