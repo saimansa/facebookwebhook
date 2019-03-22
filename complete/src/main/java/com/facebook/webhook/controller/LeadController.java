@@ -26,7 +26,12 @@ public class LeadController {
 
 	@Autowired
 	LeadService leadService;
-
+    /**
+     * Event notification request from facebook with HTTPS POST call
+     * @param signature
+     * @param subscriber
+     * @return
+     */
 	@PostMapping("/api/webhooks")
 	public Map<String, String> leadGen(@RequestHeader(value = "X-Hub-Signature") String signature,
 			@RequestBody Map<String, Object> subscriber) {
@@ -63,7 +68,13 @@ public class LeadController {
 		map.put("status", status);
 		return map;
 	}
-
+    /**
+     * verification request for webhook subscription
+     * @param mode
+     * @param challenge
+     * @param token
+     * @return
+     */
 	@GetMapping("/api/webhooks")
 	public String callBck(@RequestParam("hub.mode") String mode, @RequestParam("hub.challenge") String challenge,
 			@RequestParam("hub.verify_token") String token) {
